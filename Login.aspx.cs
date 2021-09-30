@@ -23,6 +23,8 @@ namespace ChatApplication
 
             if (myUser != null)     //if user was found
             {
+                Session["userid"] = myUser.Id.ToString();
+                Session["username"] = myUser.Username.ToString();
                 Response.Redirect("Home.aspx");
             }
             else    //User was not found

@@ -11,7 +11,16 @@ namespace ChatApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["userid"] != null)
+            {
+                homeuname.Text = "Welcome, " + Session["username"].ToString();
+                login.Visible = false;
+                register.Visible = false;
+            }
+            else
+            {
+                logout.Visible = false;
+            }
         }
     }
 }

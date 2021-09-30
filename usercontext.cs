@@ -13,5 +13,10 @@ namespace ChatApplication
 
         }
         public DbSet<User> Users { get; set; }
+
+        internal void Update(User u)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
