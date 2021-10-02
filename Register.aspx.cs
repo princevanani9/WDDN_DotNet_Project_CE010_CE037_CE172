@@ -9,6 +9,7 @@ namespace ChatApplication
 {
     public partial class Register : System.Web.UI.Page
     {
+        String b;
         protected void Page_Load(object sender, EventArgs e)
         {
             ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
@@ -81,7 +82,11 @@ namespace ChatApplication
         protected void Button1_Click(object sender, EventArgs e)
         {
             usercontext db = new usercontext();
-            User u1 = new User { Username = Username1.Text, Email = Email1.Text, Mobile = Mobile1.Text, Password = Password1.Text };
+            Random r = new Random();
+            int num = r.Next();
+            f1.SaveAs(Request.PhysicalApplicationPath+"Images/"+num.ToString()+f1.FileName.ToString());
+            b ="Images/"+ num.ToString() + f1.FileName.ToString();
+            User u1 = new User { Username = Username1.Text, Email = Email1.Text, Mobile = Mobile1.Text, Password = Password1.Text ,Image=b};
             db.Users.Add(u1);
             db.SaveChanges();
             Response.Redirect("Login.aspx");
@@ -104,13 +109,10 @@ namespace ChatApplication
                     }
                     else
                     {
-
                         args.IsValid = true;
                     }
                 }
             }
-
-
         }
     }
 }

@@ -80,6 +80,7 @@
     <Content Include="Profile.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Updateprofile.aspx" />
+    <Content Include="ViewProfile.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +105,15 @@
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109261111014_InitialCreate.cs" />
+    <Compile Include="Migrations\202109261111014_InitialCreate.designer.cs">
+      <DependentUpon>202109261111014_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110010953564_initial.cs" />
+    <Compile Include="Migrations\202110010953564_initial.designer.cs">
+      <DependentUpon>202110010953564_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -128,6 +138,13 @@
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="usercontext.cs" />
+    <Compile Include="ViewProfile.aspx.cs">
+      <DependentUpon>ViewProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewProfile.aspx.designer.cs">
+      <DependentUpon>ViewProfile.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -137,6 +154,14 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202109261111014_InitialCreate.resx">
+      <DependentUpon>202109261111014_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110010953564_initial.resx">
+      <DependentUpon>202110010953564_initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

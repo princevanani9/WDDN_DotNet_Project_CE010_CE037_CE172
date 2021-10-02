@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
 </head>
     <script>
         function ValidatePassword(source, arguments) {
@@ -110,9 +111,10 @@
                 </td>
             </tr>
             <tr>
-                <td style="text-align:right;" class="auto-style5"> &nbsp;</td>
+               <td style="text-align:right;" class="auto-style5"> Profile Photo:</td>
                 <td style="text-align:left;">
-                    &nbsp;</td>
+                    <asp:FileUpload ID="f1" runat="server" Width="211px" />
+                </td>
                 <td style="text-align:left;" class="auto-style14">
                     &nbsp;</td>
             </tr>
@@ -120,12 +122,12 @@
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
         <p>
         </p>
-        <p style="text-align:center;">
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Save changes" />
+         <p style="text-align:center;">
+            <asp:Button ID="Button2" runat="server" Text="Back" CssClass="btn btn-dark" OnClick="Button2_Click"/>&nbsp;&nbsp;
+             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Save changes" CssClass="btn btn-danger"/>
         </p>
-        <p style="text-align:center;">
-            <asp:HyperLink ID="HyperLogin1" runat="server" NavigateUrl="~/Profile.aspx">Back</asp:HyperLink>
-        </p>
+     
+       
         <p style="text-align:center;font-size:20px;">
             &nbsp;</p>
         <p>

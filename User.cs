@@ -20,5 +20,8 @@ namespace ChatApplication
         public string Mobile { get; set; }
         [Required]
         public string Password { get; set; }
+        [Required]
+        public string Image { get; set; }
+
     }
 }

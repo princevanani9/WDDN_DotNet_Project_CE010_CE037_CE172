@@ -166,7 +166,7 @@
             <tr>
                 <td style="text-align:right;" class="auto-style5"> Profile Photo:</td>
                 <td style="text-align:left;">
-                    <asp:FileUpload ID="Image1" runat="server" Width="211px" />
+                    <asp:FileUpload ID="f1" runat="server" Width="211px" />
                 </td>
                 <td style="text-align:left;" class="auto-style14">
                     &nbsp;</td>

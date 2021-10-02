@@ -13,7 +13,7 @@ namespace ChatApplication
         {
             Session.Remove("userid");
             Session.Remove("username");
-            Response.Redirect("Home.aspx");
+            Response.Redirect("Login.aspx");
         }
     }
 }

@@ -9,18 +9,29 @@ namespace ChatApplication
 {
     public partial class Home : System.Web.UI.Page
     {
+        usercontext db = new usercontext();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["userid"] != null)
             {
-                homeuname.Text = "Welcome, " + Session["username"].ToString();
+    
                 login.Visible = false;
                 register.Visible = false;
             }
             else
             {
                 logout.Visible = false;
+                Response.Redirect("Login.aspx");
             }
+            
+        }
+        protected void ShowProfile(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            int pid = Convert.ToInt32(btn.CommandArgument);
+            Session["pid"] = pid;
+            Response.Redirect("ViewProfile.aspx");
+
         }
     }
 }

@@ -12,6 +12,7 @@ namespace ChatApplication
     public partial class updateprofile : System.Web.UI.Page
     {
         usercontext db = new usercontext();
+        String b;
         protected void Page_Load(object sender, EventArgs e)
         {
             ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
@@ -38,10 +39,15 @@ namespace ChatApplication
             usercontext db = new usercontext();
             var id = Convert.ToInt32(Session["userid"]);
             User u = db.Users.Where(a => a.Id == id).FirstOrDefault<User>();
+            Random r = new Random();
+            int num = r.Next();
+            f1.SaveAs(Request.PhysicalApplicationPath + "Images/" + num.ToString() + f1.FileName.ToString());
+            b = "Images/" + num.ToString() + f1.FileName.ToString();
             u.Username = Username.Text;
             u.Email = Email.Text;
             u.Mobile = Mobile.Text;
             u.Password = Password1.Text;
+            u.Image = b;
             db.Users.AddOrUpdate(u);
             db.SaveChanges();
             Session["username"] = Username.Text;
@@ -138,6 +144,9 @@ namespace ChatApplication
 
         }
 
-        
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Profile.aspx");
+        }
     }
 }
