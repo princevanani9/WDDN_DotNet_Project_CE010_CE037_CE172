@@ -10,6 +10,7 @@ namespace ChatApplication
     public partial class Home : System.Web.UI.Page
     {
         usercontext db = new usercontext();
+        public bool status1 { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["userid"] != null)
@@ -17,6 +18,7 @@ namespace ChatApplication
     
                 login.Visible = false;
                 register.Visible = false;
+              //  Session["status1"] = "False";
             }
             else
             {
@@ -33,5 +35,17 @@ namespace ChatApplication
             Response.Redirect("ViewProfile.aspx");
 
         }
+        protected void ShowMessage(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            int rid = Convert.ToInt32(btn.CommandArgument);
+            Session["receiver"] = rid;
+            Session["sender"] = Session["userid"];
+            //Session["status1"] = "True";
+            Response.Redirect("Message.aspx");
+            
+
+        }
+        
     }
 }

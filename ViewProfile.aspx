@@ -43,7 +43,7 @@
             <p style="text-align:center;">
             <asp:Button ID="Button1" runat="server" Text="Back" CssClass="btn btn-danger" OnClick="Button1_Click"/>
       <asp:Button ID="Message" runat="server" Text="Message" CssClass="btn btn-dark" />
-                </p>
+            </p>
         </div>
     </form>
 </body>

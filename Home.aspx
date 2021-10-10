@@ -7,18 +7,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <title>Home</title>
     <style type="text/css">
-      
+        
         .scroll-div {
-            width: 330px;
+            width:330px;
             background: grey;
             height: 550px;
             overflow-y: scroll;
+            align-self:flex-start;
         }
 
         .scroll-object {
             color: black;
             font-family: cursive;
             padding: 10px;
+             margin-left:0;
         }
     </style>
 </head>
@@ -62,8 +64,16 @@
         </div>
     </nav>
     <form id="form1" runat="server">
-        <div>
-            <div class="scroll-bg">
+        
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:mychattingConnectionString %>" SelectCommand="SELECT * FROM [Users] WHERE ([Username] NOT LIKE '%' + @Username + '%')">
+            <SelectParameters>
+                <asp:SessionParameter Name="Username" SessionField="username" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+  <div class="row">
+    
+    <div class="col-sm-3" >
+            <div class="scroll-bg" >
                 <div class="scroll-div">
                     <div class="scroll-object">
                         <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1">
@@ -76,21 +86,20 @@
 
 
                                         <asp:Button ID="Button1" runat="server" CommandArgument='<%#Eval("Id") %>' OnClick="ShowProfile" Text="ViewProfile" CssClass="btn btn-danger" />
-                                        <asp:Button ID="Message" runat="server" Text="Message" CssClass="btn btn-dark" />
+                                        <asp:Button ID="Message" runat="server" Text="Message" CssClass="btn btn-dark" OnClick="ShowMessage" CommandArgument='<%#Eval("Id") %>' />
                                     </div>
                                 </div>
                             </ItemTemplate>
                         </asp:DataList>
+                    &nbsp;&nbsp;
                     </div>
                 </div>
             </div>
         </div>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:mychattingConnectionString %>" SelectCommand="SELECT * FROM [Users] WHERE ([Username] NOT LIKE '%' + @Username + '%')">
-            <SelectParameters>
-                <asp:SessionParameter Name="Username" SessionField="username" Type="String" />
-            </SelectParameters>
-        </asp:SqlDataSource>
-
+    <div class="col-sm-9">
+      Hello 
+    </div>
+  </div>
     </form>
 </body>
 </html>
