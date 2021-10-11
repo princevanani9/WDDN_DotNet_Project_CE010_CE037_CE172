@@ -12,7 +12,36 @@ namespace ChatApplication
         usercontext db = new usercontext();
         protected void Page_Load(object sender, EventArgs e)
         {
-           // Response.Redirect("Message.aspx");
+            if (Session["userid"] != null)
+            {
+
+                login.Visible = false;
+                register.Visible = false;
+            }
+            else
+            {
+                logout.Visible = false;
+                Response.Redirect("Login.aspx");
+            }
+
+
+        }
+        protected void ShowProfile(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            int pid = Convert.ToInt32(btn.CommandArgument);
+            Session["pid"] = pid;
+            Response.Redirect("ViewProfile.aspx");
+
+        }
+        protected void ShowMessage(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            int rid = Convert.ToInt32(btn.CommandArgument);
+            Session["receiver"] = rid;
+            Session["sender"] = Session["userid"];
+            //Session["status1"] = "True";
+            Response.Redirect("Message.aspx");
 
 
         }
@@ -28,9 +57,7 @@ namespace ChatApplication
             cc.chats.Add(c1);
             cc.SaveChanges();
             Message1.Text = "";
-            //Response.Redirect(Request.RawUrl);
-            
-            
+            //Response.Redirect(Request.RawUrl); 
 
         }
     }

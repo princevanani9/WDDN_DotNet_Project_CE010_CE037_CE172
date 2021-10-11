@@ -12,6 +12,7 @@
             width:330px;
             background: grey;
             height: 550px;
+            overflow-x:hidden;
             overflow-y: scroll;
             align-self:flex-start;
         }
@@ -24,7 +25,7 @@
         }
     </style>
 </head>
-<body>
+<body style="background-color:#7a7a7a;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Chat</a>
@@ -96,8 +97,8 @@
                 </div>
             </div>
         </div>
-    <div class="col-sm-9">
-      Hello 
+    <div class="col-sm-9" style="background-image:url('./images/chat4.jpg');background-repeat:no-repeat;">
+     
     </div>
   </div>
     </form>
