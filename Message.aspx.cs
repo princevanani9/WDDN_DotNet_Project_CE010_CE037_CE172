@@ -45,7 +45,17 @@ namespace ChatApplication
 
 
         }
-
+        
+        protected void clearChat(object sender, EventArgs e)
+        {
+            chatContext cc = new chatContext();
+            var s = Session["sender"].ToString();
+            var r = Session["receiver"].ToString();
+            cc.chats.RemoveRange(cc.chats.Where(c => c.Sender == s && c.Receiver == r));
+            cc.chats.RemoveRange(cc.chats.Where(c => c.Sender == r && c.Receiver == s));
+            cc.SaveChanges();
+            Response.Redirect("Message.aspx");
+        }
         protected void Button1_Click(object sender, EventArgs e)
         {
             

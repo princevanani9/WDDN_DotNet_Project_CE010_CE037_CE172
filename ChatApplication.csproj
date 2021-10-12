@@ -115,13 +115,9 @@
     <Compile Include="Message.aspx.designer.cs">
       <DependentUpon>Message.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202109261111014_InitialCreate.cs" />
-    <Compile Include="Migrations\202109261111014_InitialCreate.designer.cs">
-      <DependentUpon>202109261111014_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110010953564_initial.cs" />
-    <Compile Include="Migrations\202110010953564_initial.designer.cs">
-      <DependentUpon>202110010953564_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202110111759137_Initial.cs" />
+    <Compile Include="Migrations\202110111759137_Initial.designer.cs">
+      <DependentUpon>202110111759137_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Profile.aspx.cs">
@@ -166,11 +162,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202109261111014_InitialCreate.resx">
-      <DependentUpon>202109261111014_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110010953564_initial.resx">
-      <DependentUpon>202110010953564_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202110111759137_Initial.resx">
+      <DependentUpon>202110111759137_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

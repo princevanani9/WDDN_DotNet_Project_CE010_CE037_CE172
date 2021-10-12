@@ -5,15 +5,14 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ChatApplication.usercontext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ChatApplication.chatContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "ChatApplication.usercontext";
         }
 
-        protected override void Seed(ChatApplication.usercontext context)
+        protected override void Seed(ChatApplication.chatContext context)
         {
             //  This method will be called after migrating to the latest version.
 

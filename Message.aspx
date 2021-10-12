@@ -35,6 +35,10 @@
             font-family: cursive;
             margin-right: 0;
         }
+        .header{
+            background-color:white;
+            height:45px;
+        }
     </style>
 
 </head>
@@ -50,6 +54,12 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="Home.aspx">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
                     </li>
                     <li class="nav-item">
                         <asp:HyperLink class="nav-link active" aria-current="page" ID="login" runat="server" NavigateUrl="~/Login.aspx">Login</asp:HyperLink>
@@ -108,11 +118,29 @@
                     </div>
                 </div>
                 <div class="col-9">
+                    <div class="header">
+                        <asp:DataList ID="DataList3" runat="server" DataSourceID="SqlDataSource2">
+                            <ItemTemplate>
+                                &nbsp;&nbsp;
+                                <img src='<%#Eval("Image") %>' style="border-radius: 50%; height: 40px; width: 40px; align-self: center;">
+                                &nbsp;&nbsp;
+                                <asp:Label ID="UsernameLabel" runat="server" Text='<%# Eval("Username") %>' />
+                                <asp:Button ID="clearchat" runat="server" Text="Clear Chat" style="float:right;margin-left:750px;margin-top:5px;" OnClick="clearChat" />
+
+                            </ItemTemplate>
+
+                        </asp:DataList>
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:chat %>" SelectCommand="SELECT [Username], [Image] FROM [Users] WHERE ([Id] = @Id)">
+                            <SelectParameters>
+                                <asp:SessionParameter Name="Id" SessionField="receiver" Type="Int32" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                    </div>
                     <div class="scroll1">
                         <div class="scroll2">
                             <div >
-
-                        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" DataKeyField="Id">
+                                
+                        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" DataKeyField="Id" Width="139px">
                             <ItemTemplate>
           
                                 <div id="myDiv" style='<%# Eval("Sender").ToString() ==Session["userid"].ToString()  ?"background-color:#009e9e;color:white;width:300px;margin-left:235%;margin-right:-235%;border-radius:30px 15px;text-align:right": "background-color:white;border-radius:15px 30px;text-align:left;width:300px;" %>'>
