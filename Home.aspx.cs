@@ -46,6 +46,31 @@ namespace ChatApplication
             
 
         }
-        
+        protected void search_Click(object sender, EventArgs e)
+        {
+            if (searchtextbox.Text != null)
+            {
+                var uname = searchtextbox.Text;
+                try
+                {
+                    var myUser = db.Users.Single(a => a.Username == uname);
+                    if (myUser != null)
+                    {
+                        Session["receiver"] = myUser.Id;
+                        Session["sender"] = Session["userid"];
+                        Response.Redirect("Message.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("Message.aspx");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Label2.Text = "User not found!!";
+                }
+            }
+        }
+
     }
 }
