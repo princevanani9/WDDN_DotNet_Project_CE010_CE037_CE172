@@ -6,6 +6,73 @@
 <head runat="server">
     <title></title>
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+     <style type="text/css">
+        
+
+        body{
+             margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background: #5f9ea0;
+        }
+        .box{
+  width: 600px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #191919;
+  text-align: center;
+  height:570px;
+  border-radius:15px;
+}
+        #Username,#Email,#Mobile,#Password1,#Password2{
+  border:0;
+  background: none;
+  display: block;
+  margin: 5px auto;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 10px 10px;
+  width: 300px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+        .box td{
+             color: white;
+        }
+        table{
+            font-weight:bold;
+        }
+        .box h1{
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+        #Username:focus{
+  width: 280px;
+  border-color: #2ecc71;
+}
+        #Password2:focus{
+            width: 280px;
+  border-color: #2ecc71;
+        }
+        #Password1:focus{
+            width: 280px;
+  border-color: #2ecc71;
+        }
+        #Email:focus{
+            width: 280px;
+  border-color: #2ecc71;
+        }
+        #Mobile:focus{
+            width: 280px;
+  border-color: #2ecc71;
+        }
+    </style>
 </head>
     <script>
         function ValidatePassword(source, arguments) {
@@ -57,9 +124,9 @@
         }
     </script>
 <body>
-    <form id="form1" runat="server">
+    <form class="box" id="form1" runat="server">
         <h1  style="text-align:center;"> Update profile</h1>
-        <table class="auto-style1" style="text-align:center;background:whitesmoke;"  align="center">
+        <table class="auto-style1" align="center">
             <tr>
                 <td style="text-align:right;" class="auto-style5">Username:</td>
                 <td  style="text-align:left;">
@@ -119,11 +186,11 @@
                     &nbsp;</td>
             </tr>
         </table>
-        <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="text-danger" />
         <p>
         </p>
          <p style="text-align:center;">
-            <asp:Button ID="Button2" runat="server" Text="Back" CssClass="btn btn-dark" OnClick="Button2_Click"/>&nbsp;&nbsp;
+            <asp:Button ID="Button2" runat="server" Text="Back" CssClass="btn btn-danger" OnClick="Button2_Click"/>&nbsp;&nbsp;
              <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Save changes" CssClass="btn btn-danger"/>
         </p>
      

@@ -73,9 +73,9 @@ namespace ChatApplication
 
         protected void search_Click(object sender, EventArgs e)
         {
-            if(searchtextbox.Text != null)
+            if(TextBox1.Text != null)
             {
-                var uname = searchtextbox.Text;
+                var uname = TextBox1.Text;
                 try
                 {
                     var myUser = db.Users.Single(a => a.Username == uname);

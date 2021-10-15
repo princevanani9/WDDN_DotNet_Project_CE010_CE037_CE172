@@ -10,10 +10,10 @@
     <style type="text/css">
         .scroll-div {
             width: 330px;
-            background:#004242;
+            background: #004242;
             height: 560px;
             overflow-y: scroll;
-            overflow-x:hidden;
+            overflow-x: hidden;
             align-self: flex-start;
         }
 
@@ -23,32 +23,34 @@
             margin-left: 0;
         }
 
-        .scroll1{
+        .scroll1 {
             display: flex;
             flex-direction: column-reverse;
-            height:560px;
+            height: 520px;
             overflow-y: scroll;
-            overflow-x:hidden;
+            overflow-x: hidden;
         }
 
-        .scroll2{
+        .scroll2 {
             font-family: cursive;
             margin-right: 0;
         }
-        .header{
-            background-color:white;
-            height:45px;
+
+        .header {
+            background-color: white;
+            height: 45px;
         }
-        .message{
-            margin-left:auto;
-            margin-right:auto;
+
+        .message {
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 
 </head>
-<body style="overflow-x:hidden;background:#004747;">
+<body style="overflow-x: hidden; background: #004747;">
 
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background:#001f1f;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: #001f1f;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Chat</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,12 +61,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="Home.aspx">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
-                    </li>
+
                     <li class="nav-item">
                         <asp:HyperLink class="nav-link active" aria-current="page" ID="login" runat="server" NavigateUrl="~/Login.aspx">Login</asp:HyperLink>
                     </li>
@@ -84,98 +81,104 @@
         </div>
     </nav>
 
-    
-       <form id="form2" runat="server">
-                
+
+    <form id="form2" runat="server">
+
         <div class="row">
-                <div class="col-3">
-                    <div class="scroll-bg">
-                        <div class="scroll-div">
-                            <div class="scroll-object">
-                                <asp:TextBox class="form-control me-2" ID="searchtextbox" runat="server" placeholder="Type to search"></asp:TextBox>
-                                <asp:Button ID="search" runat="server" Text="Search" ForeColor="#339933" OnClick="search_Click" />
-                                <asp:DataList ID="DataList2" runat="server" DataSourceID="SqlDataSource3" DataKeyField="Id">
-                                    <ItemTemplate>
-                                        <div class="card" style="width: 18rem; background:#99e6b3;margin:10px;">
+            <div class="col-3">
+                <div class="scroll-bg">
+                    <div class="scroll-div">
+                        <div class="scroll-object">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <asp:TextBox class="form-control me-2" ID="TextBox1" runat="server" placeholder="Type to search" Width="200px"></asp:TextBox></td>
+                                    <td>
+                                        <asp:Button ID="search" runat="server" Text="Search" ForeColor="#339933" OnClick="search_Click" Height="35px" Width="83px" /></td>
+                                </tr>
+                            </table>
+                            <asp:DataList ID="DataList2" runat="server" DataSourceID="SqlDataSource3" DataKeyField="Id">
+                                <ItemTemplate>
+                                    <div class="card" style="width: 18rem; background: #99e6b3; margin: 10px;">
 
-                                            <div class="card-body">
-                                                <h5 class="card-title" style="align-self: center;">
-                                                    <img src='<%#Eval("Image") %>' class="card-img-top" style="border-radius: 50%; height: 70px; width: 70px; align-self: center;">&nbsp;&nbsp;&nbsp;<asp:Label ID="Label1" runat="server" Text='<%#Eval("Username") %>'></asp:Label></h5>
+                                        <div class="card-body">
+                                            <h5 class="card-title" style="align-self: center;">
+                                                <img src='<%#Eval("Image") %>' class="card-img-top" style="border-radius: 50%; height: 70px; width: 70px; align-self: center;">&nbsp;&nbsp;&nbsp;<asp:Label ID="Label1" runat="server" Text='<%#Eval("Username") %>'></asp:Label></h5>
 
 
-                                                <asp:Button ID="Button1" runat="server" CommandArgument='<%#Eval("Id") %>' OnClick="ShowProfile" Text="ViewProfile" CssClass="btn btn-danger" />
-                                                <asp:Button ID="Message" runat="server" Text="Message" CssClass="btn btn-dark" OnClick="ShowMessage" CommandArgument='<%#Eval("Id") %>' />
-                                            </div>
+                                            <asp:Button ID="Button1" runat="server" CommandArgument='<%#Eval("Id") %>' OnClick="ShowProfile" Text="ViewProfile" CssClass="btn btn-danger" />
+                                            <asp:Button ID="Message" runat="server" Text="Message" CssClass="btn btn-dark" OnClick="ShowMessage" CommandArgument='<%#Eval("Id") %>' />
                                         </div>
-                                    </ItemTemplate>
-                                </asp:DataList>
-                                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:chat %>" SelectCommand="SELECT [Username], [Image], [Id] FROM [Users] WHERE ([Username] NOT LIKE '%' + @Username + '%')">
-                                    <SelectParameters>
-                                        <asp:SessionParameter Name="Username" SessionField="username" Type="String" />
-                                    </SelectParameters>
-                                </asp:SqlDataSource>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:DataList>
+                            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:chat %>" SelectCommand="SELECT [Username], [Image], [Id] FROM [Users] WHERE ([Username] NOT LIKE '%' + @Username + '%')">
+                                <SelectParameters>
+                                    <asp:SessionParameter Name="Username" SessionField="username" Type="String" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
 
-                              
-                            </div>
+
                         </div>
                     </div>
                 </div>
-                <div class="col-9">
-                    <div class="header">
-                        <asp:DataList ID="DataList3" runat="server" DataSourceID="SqlDataSource2">
-                            <ItemTemplate>
-                                &nbsp;&nbsp;
+            </div>
+            <div class="col-9">
+                <div class="header">
+                    <asp:DataList ID="DataList3" runat="server" DataSourceID="SqlDataSource2">
+                        <ItemTemplate><b>
+                            &nbsp;&nbsp;
                                 <img src='<%#Eval("Image") %>' style="border-radius: 50%; height: 40px; width: 40px; align-self: center;">
-                                &nbsp;&nbsp;
-                                <asp:Label ID="UsernameLabel" runat="server" Text='<%# Eval("Username") %>' />
-                                <asp:Button ID="clearchat" runat="server" Text="Clear Chat" style="float:right;margin-left:750px;margin-top:5px;" OnClick="clearChat" />
+                            &nbsp;&nbsp;
+                                <asp:Label ID="UsernameLabel" runat="server" Text='<%# Eval("Username") %>' style="font-size:25px;"/>
+                            <asp:Button ID="clearchat" runat="server" Text="Clear Chat" Style="float: right; margin-left: 750px; margin-top: -40px;" OnClick="clearChat" />
+                            </b>
+                        </ItemTemplate>
 
-                            </ItemTemplate>
+                    </asp:DataList>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:chat %>" SelectCommand="SELECT [Username], [Image] FROM [Users] WHERE ([Id] = @Id)">
+                        <SelectParameters>
+                            <asp:SessionParameter Name="Id" SessionField="receiver" Type="Int32" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                </div>
+                <div class="scroll1">
+                    <div class="scroll2">
+                        <div>
 
-                        </asp:DataList>
-                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:chat %>" SelectCommand="SELECT [Username], [Image] FROM [Users] WHERE ([Id] = @Id)">
-                            <SelectParameters>
-                                <asp:SessionParameter Name="Id" SessionField="receiver" Type="Int32" />
-                            </SelectParameters>
-                        </asp:SqlDataSource>
-                    </div>
-                    <div class="scroll1">
-                        <div class="scroll2">
-                            <div >
-                                
-                        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" DataKeyField="Id" Width="139px">
-                            <ItemTemplate>
-          
-                                <div id="myDiv" style='<%# Eval("Sender").ToString() ==Session["userid"].ToString()  ?"background-color:#009e9e;color:white;width:300px;margin-left:235%;margin-right:-235%;border-radius:30px 15px;text-align:right": "background-color:white;border-radius:15px 30px;text-align:left;width:300px;" %>'>
-                                    <asp:Label ID="MessageLabel" runat="server" Text='<%# Eval("Message") %>' style="padding:20px;"/>
+                            <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" DataKeyField="Id" Width="139px">
+                                <ItemTemplate>
+
+                                    <div id="myDiv" style='<%# Eval("Sender").ToString() ==Session["userid"].ToString()  ?"background-color:#009e9e;color:white;width:300px;margin-left:235%;margin-right:-235%;border-radius:30px 15px;text-align:right": "background-color:white;border-radius:15px 30px;text-align:left;width:300px;" %>'>
+                                        <asp:Label ID="MessageLabel" runat="server" Text='<%# Eval("Message") %>' Style="padding: 20px;" />
+                                        <br />
+                                        <asp:Label ID="DateLabel" runat="server" Text='<%# Eval("Date") %>' Style="padding: 20px;" />
+                                        <br />
+                                    </div>
                                     <br />
-                                    <asp:Label ID="DateLabel" runat="server" Text='<%# Eval("Date") %>' style="padding:20px;" />
-                                    <br />
-                                </div>
-                                <br />
 
-                            </ItemTemplate>
-                        </asp:DataList>
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:chat %>" SelectCommand="SELECT * FROM [chats] WHERE (([Sender] = @Sender) AND ([Receiver] = @Receiver) OR ([Sender] = @Sender2) AND ([Receiver] = @Receiver2))">
-                            <SelectParameters>
-                                <asp:SessionParameter Name="Sender" SessionField="sender" Type="String" />
-                                <asp:SessionParameter Name="Receiver" SessionField="receiver" Type="String" />
-                                <asp:SessionParameter Name="Sender2" SessionField="receiver" Type="String" />
-                                <asp:SessionParameter Name="Receiver2" SessionField="sender" Type="String" />
-                            </SelectParameters>
-                        </asp:SqlDataSource>
-                        <br />
+                                </ItemTemplate>
+                            </asp:DataList>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:chat %>" SelectCommand="SELECT * FROM [chats] WHERE (([Sender] = @Sender) AND ([Receiver] = @Receiver) OR ([Sender] = @Sender2) AND ([Receiver] = @Receiver2))">
+                                <SelectParameters>
+                                    <asp:SessionParameter Name="Sender" SessionField="sender" Type="String" />
+                                    <asp:SessionParameter Name="Receiver" SessionField="receiver" Type="String" />
+                                    <asp:SessionParameter Name="Sender2" SessionField="receiver" Type="String" />
+                                    <asp:SessionParameter Name="Receiver2" SessionField="sender" Type="String" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
+                            <br />
 
-                        <asp:TextBox ID="Message1" runat="server" style="width:930px;"></asp:TextBox>
-                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Send" style="margin-right:-100px;"  />
-                        &nbsp;&nbsp;
+                            <asp:TextBox ID="Message1" runat="server" Style="width: 930px;"></asp:TextBox>
+                            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Send" Style="margin-right: -100px;" />
+                            &nbsp;&nbsp;
 
-                    </div>
                         </div>
                     </div>
-                    
                 </div>
-            </div>  
-            </form>
+
+            </div>
+        </div>
+    </form>
 </body>
 </html>

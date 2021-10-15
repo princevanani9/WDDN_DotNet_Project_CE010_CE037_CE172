@@ -187,7 +187,6 @@ F:\my_proj\WDDN_DotNet_Project_CE010_CE037_CE172\obj\Debug\ChatApplication.cspro
 F:\my_proj\WDDN_DotNet_Project_CE010_CE037_CE172\obj\Debug\ChatApplication.csproj.CopyComplete
 F:\my_proj\WDDN_DotNet_Project_CE010_CE037_CE172\obj\Debug\ChatApplication.dll
 F:\my_proj\WDDN_DotNet_Project_CE010_CE037_CE172\obj\Debug\ChatApplication.pdb
-F:\my_proj\WDDN_DotNet_Project_CE010_CE037_CE172\obj\Debug\ChatApplication.Migrations.InitialCreate.resources
 F:\my_proj\WDDN_DotNet_Project_CE010_CE037_CE172\obj\Debug\ChatApplication.csproj.GenerateResource.cache
 F:\my_proj\WDDN_DotNet_Project_CE010_CE037_CE172\obj\Debug\ChatApplication.Migrations.initial.resources
 F:\my_proj\Demo_Project\WDDN_DotNet_Project_CE010_CE037_CE172\bin\ChatApplication.dll.config
